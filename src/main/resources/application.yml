@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:20201/sample
+    username: root
+    password: password
+  flyway:
+    enabled: true
+    schemas: sample
+    baseline-on-migrate: true # perform migration even if `schema` is `non-empty`
+    mixed: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
