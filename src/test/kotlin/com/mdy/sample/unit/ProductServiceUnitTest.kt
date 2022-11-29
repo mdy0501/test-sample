@@ -59,7 +59,10 @@ class ProductServiceUnitTest {
         every { productRepository.save(any()) } returns givenProduct
 
         // when
-        val res = productService.register(name = givenProduct.name, price = givenProduct.price)
+        val res = productService.register(
+            name = givenProduct.name,
+            price = givenProduct.price
+        )
 
         // then
         assertEquals(givenProduct.id, res.id)

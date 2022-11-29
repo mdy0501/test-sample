@@ -16,6 +16,8 @@ class ProductService(
      * 상품 조회
      */
     fun get(id: Long): Product {
+
+
         return productRepository.findByIdOrNull(id = id)
             ?: throw Exception("Not found product - productId: $id")
     }

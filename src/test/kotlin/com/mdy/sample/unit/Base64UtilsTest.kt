@@ -4,6 +4,7 @@ import com.mdy.sample.annotation.UnitTest
 import com.mdy.sample.utils.Base64CustomUtils
 import com.mdy.sample.utils.logger
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import java.util.Base64
@@ -31,7 +32,6 @@ class Base64UtilsTest {
     @Test
     fun testDecoder() {
         // given
-        // c2VjcmV0S2V5
         val givenEncodedValue = "c2VjcmV0S2V5"
         val decodedGivenValue = String(Base64.getDecoder().decode(givenEncodedValue))
 

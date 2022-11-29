@@ -41,6 +41,44 @@ class ProductRepositoryIntegrationTest(
         assertEquals(5, res.size)
     }
 
+    @DisplayName("findAllByPrice() test")
+    @Test
+    fun testFindAllByPrice() {
+        // given
+        val givenPrice = 2000f
+        val givenProductList = productRepository.saveAll(
+            listOf(
+                ProductStub.getWithParams(price = givenPrice),
+                ProductStub.getWithParams(price = givenPrice),
+                ProductStub.getWithParams(price = givenPrice),
+                ProductStub.getWithParams(price = givenPrice),
+                ProductStub.getWithParams(price = givenPrice),
+            )
+        )
+
+        // when
+        val res = productRepository.findAllByPrice(price = givenPrice)
+        log.info("# res: $res")
+
+        // then
+        assertEquals(givenProductList.size, res.size)
+    }
+
+    @DisplayName("findByName() test")
+    @Test
+    fun testFindByName() {
+        // given
+        val givenProduct = productRepository.save(ProductStub.get())
+
+        // when
+        val res = productRepository.findByName(name = givenProduct.name)
+
+        // then
+        assertEquals(givenProduct.id, res.id)
+        assertEquals(givenProduct.name, res.name)
+        assertEquals(givenProduct.price, res.price)
+    }
+
     companion object {
         private val log = logger()
     }

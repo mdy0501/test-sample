@@ -70,16 +70,20 @@ class ProductSerivceIntegrationTest(
     fun testUpdateSuccess() {
         // given
         val givenProduct = productRepository.save(ProductStub.get())
-        val givenProductName = genString()
-        val givenProductPrice = genLong().toFloat()
+        val givenChangeProductName = genString()
+        val givenChangeProductPrice = genLong().toFloat()
 
         // when
-        val res = productService.update(id = givenProduct.id, name = givenProductName, price = givenProductPrice)
+        val res = productService.update(
+            id = givenProduct.id,
+            name = givenChangeProductName,
+            price = givenChangeProductPrice
+        )
 
         // then
         assertEquals(givenProduct.id, res.id)
-        assertEquals(givenProductName, res.name)
-        assertEquals(givenProductPrice, res.price)
+        assertEquals(givenChangeProductName, res.name)
+        assertEquals(givenChangeProductPrice, res.price)
     }
 
     @DisplayName("update() - exception test")

@@ -7,7 +7,7 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.Table
 
-@Table(name = "products")
+@Table(name = "products", schema = "sample")
 @Entity
 data class Product(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
