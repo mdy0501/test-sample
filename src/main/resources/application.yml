@@ -2,6 +2,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:20201/sample
+#    url: jdbc:postgresql://localhost:20201
     username: root
     password: password
   flyway:
@@ -9,6 +10,13 @@ spring:
     schemas: sample
     baseline-on-migrate: true # perform migration even if `schema` is `non-empty`
     mixed: true
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

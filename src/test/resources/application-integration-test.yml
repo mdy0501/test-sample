@@ -3,6 +3,7 @@ server:
 
 spring:
   datasource:
+#    url: jdbc:postgresql://localhost:20201/sample
     url: jdbc:postgresql://localhost:20201/sample
     driverClassName: org.postgresql.Driver
     username: root

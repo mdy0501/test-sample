@@ -12,7 +12,7 @@ interface ProductJpaRepository : JpaRepository<Product, Long>
 
 interface ProductCustomRepository {
     fun findAllProducts(): List<Product>
-    fun findAllByPrice(price: Float): List<Product>
+    fun findAllByPrice(price: Long): List<Product>
     fun findByName(name: String): Product
 }
 
@@ -28,7 +28,7 @@ class ProductCustomRepositoryImpl(
             .fetch()
     }
 
-    override fun findAllByPrice(price: Float): List<Product> {
+    override fun findAllByPrice(price: Long): List<Product> {
         return jpaQueryFactory
             .select(product)
             .from(product)

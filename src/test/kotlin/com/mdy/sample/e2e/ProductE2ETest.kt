@@ -86,7 +86,7 @@ class ProductE2ETest(
         // given
         val givenProduct = productRepository.save(ProductStub.get())
         val givenChangeName = "product-name-${genString()}"
-        val givenChangePrice = genLong().toFloat()
+        val givenChangePrice = genLong().toLong()
         val requestDto = PutProductRequest(
             name = givenChangeName,
             price = givenChangePrice,

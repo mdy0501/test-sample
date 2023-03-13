@@ -6,22 +6,22 @@ import com.mdy.sample.utils.TestUtils.genString
 
 object ProductStub {
     fun get(): Product {
-        return Product(
+        return Product.of(
             id = genLong(),
             name = genString(),
-            price = genLong().toFloat()
+            price = genLong()
         )
     }
 
     fun getWithParams(
         id: Long? = null,
         name: String? = null,
-        price: Float? = null
+        price: Long? = null
     ): Product {
-        return Product(
+        return Product.of(
             id = id ?: genLong(),
             name = name ?: genString(),
-            price = price ?: genLong().toFloat()
+            price = price ?: genLong()
         )
     }
 }

@@ -155,7 +155,7 @@ class ProductScenarioTest(
     fun scenario_5() {
         // given
         val givenProductId = Context.givenProductId
-        val givenChangePrice = TestUtils.genLong().toFloat()
+        val givenChangePrice = TestUtils.genLong()
         val requestDto = PutProductRequest(
             name = null,
             price = givenChangePrice,
@@ -184,7 +184,7 @@ class ProductScenarioTest(
         // given
         val givenProduct = productRepository.save(ProductStub.get())
         val givenChangeName = "product-name-${genString()}"
-        val givenChangePrice = TestUtils.genLong().toFloat()
+        val givenChangePrice = TestUtils.genLong()
         val requestDto = PutProductRequest(
             name = givenChangeName,
             price = givenChangePrice,
@@ -214,7 +214,7 @@ class ProductScenarioTest(
         // given
         val givenNotExistingProductId = genString()
         val givenChangeName = "product-name-${genString()}"
-        val givenChangePrice = TestUtils.genLong().toFloat()
+        val givenChangePrice = TestUtils.genLong()
         val requestDto = PutProductRequest(
             name = givenChangeName,
             price = givenChangePrice,

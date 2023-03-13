@@ -27,11 +27,11 @@ class ProductService(
      */
     fun register(
         name: String,
-        price: Float,
+        price: Long?,
     ): Product {
-        val product = Product(
+        val product = Product.of(
             name = name,
-            price = price
+            price = price,
         )
         return productRepository.save(product)
     }
@@ -42,7 +42,7 @@ class ProductService(
     fun update(
         id: Long,
         name: String?,
-        price: Float?
+        price: Long?
     ): Product {
         val foundProduct = productRepository.findByIdOrNull(id = id)
             ?: throw Exception("Not found product - productId: $id")

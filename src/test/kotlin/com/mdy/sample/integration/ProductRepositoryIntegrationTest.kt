@@ -45,7 +45,7 @@ class ProductRepositoryIntegrationTest(
     @Test
     fun testFindAllByPrice() {
         // given
-        val givenPrice = 2000f
+        val givenPrice = 2000L
         val givenProductList = productRepository.saveAll(
             listOf(
                 ProductStub.getWithParams(price = givenPrice),
