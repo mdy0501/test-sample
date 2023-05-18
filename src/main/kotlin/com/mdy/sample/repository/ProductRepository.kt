@@ -4,11 +4,25 @@ import com.mdy.sample.entity.Product
 import com.mdy.sample.entity.QProduct.product as product
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.jpa.repository.Query
+import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 interface ProductRepository : ProductJpaRepository, ProductCustomRepository
 
-interface ProductJpaRepository : JpaRepository<Product, Long>
+interface ProductJpaRepository : JpaRepository<Product, Long> {
+    fun findByName(name: String): Product?
+
+
+    @Query(
+        value = """
+        select p
+        from Product p
+        where p.name = :name
+    """
+    )
+    fun findByNameWithJPQL(@Param("name") name: String): Product?
+}
 
 interface ProductCustomRepository {
     fun findAllProducts(): List<Product>

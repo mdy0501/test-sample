@@ -64,14 +64,29 @@ class ProductRepositoryIntegrationTest(
         assertEquals(givenProductList.size, res.size)
     }
 
-    @DisplayName("findByName() test")
+    @DisplayName("findByName() - querydsl test")
     @Test
-    fun testFindByName() {
+    fun testFindByNameWithQueryDsl() {
         // given
         val givenProduct = productRepository.save(ProductStub.get())
 
         // when
         val res = productRepository.findByName(name = givenProduct.name)
+
+        // then
+        assertEquals(givenProduct.id, res.id)
+        assertEquals(givenProduct.name, res.name)
+        assertEquals(givenProduct.price, res.price)
+    }
+
+    @DisplayName("findByNameWithJPQL() - JPQL test")
+    @Test
+    fun testJPQL() {
+        // given
+        val givenProduct = productRepository.save(ProductStub.get())
+
+        // when
+        val res = productRepository.findByNameWithJPQL(name = givenProduct.name)!!
 
         // then
         assertEquals(givenProduct.id, res.id)
