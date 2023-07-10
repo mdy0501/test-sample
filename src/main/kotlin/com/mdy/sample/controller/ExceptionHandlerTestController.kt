@@ -58,15 +58,15 @@ class ExceptionHandlerTestController {
     }
 
 
-//    @ExceptionHandler(value = [BusinessException::class])
-//    fun handleCases(exception: BusinessException) {
-//        println("### call handle case1")
-//        println("### exception message: ${exception.message}")
-//
-//        when(exception.code) {
-//            ExceptionCode.INVALID_TOKEN -> println("### Handle INVALID_TOKEN exception!")
-//            ExceptionCode.UNAUTHORIZED -> println("### Handle UNAUTHORIZED exception!")
-//            else -> println("# Handle other exception!")
-//        }
-//    }
+    @ExceptionHandler(value = [BusinessException::class])
+    fun handleCases(exception: BusinessException) {
+        println("### call handle case1")
+        println("### exception message: ${exception.message}")
+
+        when(exception.code) {
+            ExceptionCode.INVALID_TOKEN -> println("### Handle INVALID_TOKEN exception!")
+            ExceptionCode.UNAUTHORIZED -> println("### Handle UNAUTHORIZED exception!")
+            else -> println("# Handle other exception!")
+        }
+    }
 }
