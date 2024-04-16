@@ -4,8 +4,8 @@ import com.mdy.sample.annotation.IntegrationTest
 import com.mdy.sample.repository.ProductRepository
 import com.mdy.sample.stub.ProductStub
 import com.mdy.sample.utils.logger
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test
 class ProductRepositoryIntegrationTest(
     private val productRepository: ProductRepository,
 ) {
-    @AfterEach
+    @BeforeEach
     fun deleteAll() {
         productRepository.deleteAll()
     }
