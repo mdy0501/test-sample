@@ -27,6 +27,9 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2") // for 코루틴
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.4")
+
 
     // Querydsl
     implementation("com.querydsl:querydsl-jpa")
